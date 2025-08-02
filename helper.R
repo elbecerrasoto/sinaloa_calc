@@ -147,12 +147,25 @@ get_M1a_M2a_M3a <- function(A) {
   M3_rr_sr_col <- rbind(Frr, Osr)
   M3_rs_ss_col <- rbind(Ors, Fss)
   M3 <- cbind(M3_rr_sr_col, M3_rs_ss_col)
-  
+
   I <- diag(N_SECTORS)
-  
+
   M1a <- M1 - I
   M2a <- (M2 - I) %*% M1
   M3a <- (M3 - I) %*% M2 %*% M1
 
   list(M1a = M1a, M2a = M2a, M3a = M3a)
+}
+
+get_ZAB_LG_fx_Madds <- function(mip) {
+  res <- get_ZAB_LG_fx(mip)
+  Madds <- get_M1a_M2a_M3a(res$A)
+
+  # fails at the diagonals
+  # attach(Madds)
+  # all_equal <- all(near(M1a + M2a + M3a, res$L, TOLERANCE))
+  # stopifnot("Failed additive descomposition", all_equal)
+  # detach(Madds)
+
+  c(res, Madds)
 }
