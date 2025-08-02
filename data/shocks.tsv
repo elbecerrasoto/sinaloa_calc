@@ -1,0 +1,4 @@
+region	scian	sector	shocks	descripcion
+sinaloa	111	agricultura	20,0,0,40	cons_a1,cons_a2,cons_a3,op
+sinaloa	23	construccion	60,20,20,0	cons_a1,cons_a2,cons_a3,op
+sinaloa	311	industria_alimentaria	0,0,0,40	cons_a1,cons_a2,cons_a3,op
