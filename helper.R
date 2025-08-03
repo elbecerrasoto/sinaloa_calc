@@ -169,3 +169,11 @@ get_ZAB_LG_fx_Madds <- function(mip) {
 
   c(res, Madds)
 }
+
+get_T <- function(L, x, E) {
+  e <- E / x
+  Tm <- diag(e) %*% L
+  mask <- is.nan(Tm) | is.infinite(Tm) | is.na(Tm)
+  Tm[mask] <- 0
+  Tm
+}
