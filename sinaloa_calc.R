@@ -7,6 +7,8 @@ MIP <- "data/mip_sinaloa.tsv"
 EMPLOYMENT <- "data/enoe_sinaloa.tsv"
 SHOCKS <- "data/shocks.tsv"
 
+OUTPUT <- "data/sinaloa_ejemplo.tsv"
+
 # ---- helpers
 
 # ---- main
@@ -42,12 +44,15 @@ shocks70 <- shocks70 |>
 shocks70 <- shocks70 |>
   mutate(SHtotal = rowSums(across(starts_with("SH"))))
 
-# ----exploration
+# ---- effects
 
 effects_pib <- shocks70 |>
   select(starts_with("SH")) |>
   map(\(sh) as.double(sinaloa$L %*% sh)) |>
   as_tibble()
+
+new_names <- str_c(names(effects_pib), "_pib")
+effects_pib <- set_names(effects_pib, new_names)
 
 Leffects_employment <- vector(mode = "list", length = 3)
 for (Ttype in names(Tsin)) {
@@ -68,3 +73,14 @@ effects_employment <- bind_cols(Leffects_employment)
 results <- shocks70 |>
   select(!starts_with("SH")) |>
   bind_cols(effects_pib, effects_employment)
+
+# ---- multipliers
+
+results$directos <- rep(1, N_SECTORS) # direct
+results$indirectos <- colSums(sinaloa$M1a) # indirect
+results$desbordamiento <- colSums(sinaloa$M1a) # spillover
+results$retroalimentacion <- colSums(sinaloa$M1a) # feedback
+
+# ---- write output
+
+write_tsv(results, OUTPUT)
