@@ -25,7 +25,9 @@ sinaloa <- read_tsv(MIP) |>
 employment <- read_tsv(EMPLOYMENT) |>
   filter(!is.na(sector))
 
-shocks <- read_tsv(SHOCKS)
+shocks <- read_tsv(SHOCKS,
+  col_types = cols(scian = "c")
+)
 
 # Calculate employment matrices
 etype <- c("empleos", "formales", "informales")
@@ -34,3 +36,14 @@ Tsin <- employment[etype] |>
   map(get_T, L = sinaloa$L, x = sinaloa$x)
 
 Tsin <- set_names(Tsin, etype)
+
+
+shocks70 <- left_join(employment, shocks, join_by(region, scian, sector)) |>
+  select(region, scian, sector, starts_with("SH"))
+
+
+shocks70 <- shocks70 |>
+  mutate(across(
+    starts_with("SH"),
+    \(x) coalesce(x, 0)
+  ))
