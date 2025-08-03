@@ -1,14 +1,13 @@
 library(tidyverse)
 source("helper.R")
 
+# ---- globals
+
 MIP <- "data/mip_sinaloa.tsv"
 EMPLOYMENT <- "data/enoe_sinaloa.tsv"
+SHOCKS <- "data/shocks.tsv"
 
-mip <- read_tsv(MIP)
-employment <- read_tsv(EMPLOYMENT) |>
-  filter(!is.na(sector))
-
-sinaloa <- get_ZAB_LG_fx_Madds(mip)
+# ---- helpers
 
 get_T <- function(L, x, E) {
   e <- E / x
@@ -18,6 +17,17 @@ get_T <- function(L, x, E) {
   Tm
 }
 
+# ---- main
+
+sinaloa <- read_tsv(MIP) |>
+  get_ZAB_LG_fx_Madds()
+
+employment <- read_tsv(EMPLOYMENT) |>
+  filter(!is.na(sector))
+
+shocks <- read_tsv(SHOCKS)
+
+# Calculate employment matrices
 etype <- c("empleos", "formales", "informales")
 
 Tsin <- employment[etype] |>
