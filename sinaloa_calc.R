@@ -44,9 +44,23 @@ shocks70 <- shocks70 |>
 
 # ----exploration
 
-attach(sinaloa)
-attach(shocks70)
+effects_pib <- shocks70 |>
+  select(starts_with("SH")) |>
+  map(\(sh) as.double(sinaloa$L %*% sh)) |>
+  as_tibble()
 
-sum(L %*% (SHconsA1 + f)) - sum(L %*% (f))
+Leffects_employment <- vector(mode = "list", length = 3)
+for (Ttype in names(Tsin)) {
+  Tm <- Tsin[[Ttype]]
+  i_effects <- shocks70 |>
+    select(starts_with("SH")) |>
+    map(\(sh) as.double(Tm %*% sh))
+  new_names <- str_c(names(i_effects), "_", Ttype)
 
-Tsin$empleos %*% shocks70$SHconsA1
+  i_effects <- i_effects |>
+    set_names(new_names) |>
+    as_tibble()
+
+  Leffects_employment[[Ttype]] <- i_effects
+}
+effects_employment <- bind_cols(Leffects_employment)
