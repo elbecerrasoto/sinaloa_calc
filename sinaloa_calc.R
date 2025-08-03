@@ -64,3 +64,7 @@ for (Ttype in names(Tsin)) {
   Leffects_employment[[Ttype]] <- i_effects
 }
 effects_employment <- bind_cols(Leffects_employment)
+
+results <- shocks70 |>
+  select(!starts_with("SH")) |>
+  bind_cols(effects_pib, effects_employment)
