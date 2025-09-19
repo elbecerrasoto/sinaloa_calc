@@ -22,27 +22,36 @@ percents_effects <- results |>
   set_names(str_c("P_", DIR_INDIR)
 )
 
-
-# cons <- percents_effects |>
-#   map(\(effect) effect * results$shock_cons_empleos) |>
-#   set_names(c("cons_directos", "cons_indirectos",
-#               "cons_desbordamiento", "cons_retroalimentacion"))
-# 
-# ops <- percents_effects |>
-#   map(\(effect) effect * results$shock_ops_year_empleos) |>
-#   set_names(c("ops_directos", "ops_indirectos",
-#               "ops_desbordamiento", "ops_retroalimentacion"))
+# get_effects <- function(x) {
+#   tmp <- percents_effects |>
+#     map(\(effect) effect * x) |>
+#   set_names(c("dir", "indir",
+#               "desb", "retro"))
+#   inducidos <- tmp$desb + tmp$retro
+#   list(directos = tmp$dir,
+#        indirectos = tmp$indir,
+#        inducidos = inducidos)
+# }
 
 
 get_effects <- function(x) {
   tmp <- percents_effects |>
     map(\(effect) effect * x) |>
-  set_names(c("dir", "indir",
-              "desb", "retro"))
-  inducidos <- tmp$desb + tmp$retro
-  list(directos = tmp$dir,
-       indirectos = tmp$indir,
-       inducidos = inducidos)
-}
+  set_names(c("directos", "indirectos",
+              "desbordamiento", "retroalimentacion"))
+  tmp
+  }
 
+
+shocks_names <- results |>
+  select(starts_with("shock")) |>
+  names()
+
+OUT <- vector(mode = "list", length = length(shocks_names))
+OUT <- set_names(OUT, shocks_names)
+for(sname in shocks_names) {
+  resin <- results[[sname]]
+  resout <- map(get_effects(resin), sum)
+  OUT[[sname]] <- unlist(resout)
+}
 
