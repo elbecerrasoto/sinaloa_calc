@@ -76,8 +76,8 @@ results <- shocks70 |>
 
 results$directos <- rep(1, N_SECTORS) # direct
 results$indirectos <- colSums(sinaloa$M1a) # indirect
-results$desbordamiento <- colSums(sinaloa$M1a) # spillover
-results$retroalimentacion <- colSums(sinaloa$M1a) # feedback
+results$desbordamiento <- colSums(sinaloa$M2a) # spillover
+results$retroalimentacion <- colSums(sinaloa$M3a) # feedback
 
 # ---- write output
 
