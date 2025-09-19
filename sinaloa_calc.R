@@ -5,9 +5,9 @@ source("helper.R")
 
 MIP <- "data/mip_sinaloa.tsv"
 EMPLOYMENT <- "data/enoe_sinaloa.tsv"
-SHOCKS <- "data/shocks.tsv"
+SHOCKS <- "data/input.tsv"
 
-OUTPUT <- "data/sinaloa_ejemplo.tsv"
+OUTPUT <- "data/output.tsv"
 
 # ---- helpers
 
