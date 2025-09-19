@@ -1,7 +1,7 @@
-region	scian	sector	shock_cons	shock_ops_year	shock_ops_all
-sinaloa	22	energia_electrica_agua_gas	0	3850.8009	115524.03
-sinaloa	23	construccion	32376.39	0	0
-sinaloa	324:326	industria_quimica_plasticos	0	699.7011	20991.03
-sinaloa	46	comercio_al_por_menor	0	349.8506	10495.52
-sinaloa	52	servicios_financieros	0	1312.9935	39389.81
-sinaloa	54	servicios_profesionales	0	783.6653	23509.96
+region	scian	sector	shock_cons	shock_ops_year
+sinaloa	22	energia_electrica_agua_gas	0	3850.8009
+sinaloa	23	construccion	32376.39	0
+sinaloa	324:326	industria_quimica_plasticos	0	699.7011
+sinaloa	46	comercio_al_por_menor	0	349.8506
+sinaloa	52	servicios_financieros	0	1312.9935
+sinaloa	54	servicios_profesionales	0	783.6653

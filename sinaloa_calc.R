@@ -42,9 +42,6 @@ shocks70 <- shocks70 |>
     \(x) coalesce(x, 0)
   ))
 
-shocks70 <- shocks70 |>
-  mutate(SHtotal = rowSums(across(starts_with(SHOCK_MARK))))
-
 # ---- effects
 
 effects_pib <- shocks70 |>

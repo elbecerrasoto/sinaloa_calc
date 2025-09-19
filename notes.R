@@ -6,6 +6,7 @@ SH_CONS <- USD_MXN * CONSTRUCTION / MIP_SCALE
 SH_CONS
 
 LIFE <- 30
+
 OPERATIONS <- c(
   "54_tecnicos" = (36350e3 + 4362e3),
   "324_326_quim" = 36350e3,
