@@ -33,13 +33,13 @@ percents_effects <- results |>
 #        inducidos = inducidos)
 # }
 
+EFFECTS <- c("directos", "indirectos",
+  "desbordamiento", "retroalimentacion")
 
 get_effects <- function(x) {
-  tmp <- percents_effects |>
+  percents_effects |>
     map(\(effect) effect * x) |>
-  set_names(c("directos", "indirectos",
-              "desbordamiento", "retroalimentacion"))
-  tmp
+  set_names(EFFECTS)
   }
 
 
@@ -55,3 +55,10 @@ for(sname in shocks_names) {
   OUT[[sname]] <- unlist(resout)
 }
 
+effects_over_shocks <-
+  as_tibble(OUT) |>
+  mutate(effect = EFFECTS) |>
+  relocate(effect)
+
+effects_over_shocks  |>
+  write_tsv("data/effects_on_shocks.tsv")
