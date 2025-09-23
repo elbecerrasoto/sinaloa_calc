@@ -1,3 +1,6 @@
+# When filling input ...
+# the MIP scale is on millions of pesos at 2018
+
 CONSTRUCTION <- 1681978e3
 USD_MXN <- 19.249
 MIP_SCALE <- 1e6
@@ -16,15 +19,3 @@ OPERATIONS <- c(
   )
 
 PER_YEAR <- OPERATIONS * USD_MXN / MIP_SCALE
-
-ALL_YEARS <- LIFE * PER_YEAR
-
-# When filling input ...
-# the scale is on millions of pesos at 2018
-
-# check data/enoe_sinaloa.tsv
-# to fill in the correct industries
-
-# generate a template
-# to fill, then fill accordingly 
-
