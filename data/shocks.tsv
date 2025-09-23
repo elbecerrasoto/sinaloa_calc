@@ -1,5 +1,7 @@
-region	scian	sector	SHconsA1	SHconsA2	SHconsA3	SHoperacion
-sinaloa	111	agricultura	20	0	0	40
-sinaloa	23	construccion	60	20	20	0
-sinaloa	311	industria_alimentaria	0	0	0	40
-
+region	scian	sector	shock_cons	shock_ops_year
+sinaloa	22	energia_electrica_agua_gas	0	3850.8009
+sinaloa	23	construccion	32376.39	0
+sinaloa	324:326	industria_quimica_plasticos	0	699.7011
+sinaloa	46	comercio_al_por_menor	0	349.8506
+sinaloa	52	servicios_financieros	0	1312.9935
+sinaloa	54	servicios_profesionales	0	783.6653

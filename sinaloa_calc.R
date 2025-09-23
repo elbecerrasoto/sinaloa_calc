@@ -6,8 +6,9 @@ source("helper.R")
 MIP <- "data/mip_sinaloa.tsv"
 EMPLOYMENT <- "data/enoe_sinaloa.tsv"
 SHOCKS <- "data/shocks.tsv"
+SHOCK_MARK <- "shock_"
 
-OUTPUT <- "data/sinaloa_ejemplo.tsv"
+OUTPUT <- "data/output.tsv"
 
 # ---- helpers
 
@@ -33,21 +34,18 @@ Tsin <- set_names(Tsin, etype)
 
 
 shocks70 <- left_join(employment, shocks, join_by(region, scian, sector)) |>
-  select(region, scian, sector, starts_with("SH"))
+  select(region, scian, sector, starts_with(SHOCK_MARK))
 
 shocks70 <- shocks70 |>
   mutate(across(
-    starts_with("SH"),
+    starts_with(SHOCK_MARK),
     \(x) coalesce(x, 0)
   ))
-
-shocks70 <- shocks70 |>
-  mutate(SHtotal = rowSums(across(starts_with("SH"))))
 
 # ---- effects
 
 effects_pib <- shocks70 |>
-  select(starts_with("SH")) |>
+  select(starts_with(SHOCK_MARK)) |>
   map(\(sh) as.double(sinaloa$L %*% sh)) |>
   as_tibble()
 
@@ -58,7 +56,7 @@ Leffects_employment <- vector(mode = "list", length = 3)
 for (Ttype in names(Tsin)) {
   Tm <- Tsin[[Ttype]]
   i_effects <- shocks70 |>
-    select(starts_with("SH")) |>
+    select(starts_with(SHOCK_MARK)) |>
     map(\(sh) as.double(Tm %*% sh))
   new_names <- str_c(names(i_effects), "_", Ttype)
 
@@ -71,15 +69,15 @@ for (Ttype in names(Tsin)) {
 effects_employment <- bind_cols(Leffects_employment)
 
 results <- shocks70 |>
-  select(!starts_with("SH")) |>
+  select(!starts_with(SHOCK_MARK)) |>
   bind_cols(effects_pib, effects_employment)
 
 # ---- multipliers
 
 results$directos <- rep(1, N_SECTORS) # direct
 results$indirectos <- colSums(sinaloa$M1a) # indirect
-results$desbordamiento <- colSums(sinaloa$M1a) # spillover
-results$retroalimentacion <- colSums(sinaloa$M1a) # feedback
+results$desbordamiento <- colSums(sinaloa$M2a) # spillover
+results$retroalimentacion <- colSums(sinaloa$M3a) # feedback
 
 # ---- write output
 
