@@ -6,11 +6,13 @@ results <- read_tsv(INPUT)
 
 
 get_percent <- function(x) {
-  x  / sum(x)
+  x / sum(x)
 }
 
-DIR_INDIR <- c("directos", "indirectos",
-               "desbordamiento", "retroalimentacion")
+DIR_INDIR <- c(
+  "directos", "indirectos",
+  "desbordamiento", "retroalimentacion"
+)
 
 
 percents_effects <- results |>
@@ -19,28 +21,18 @@ percents_effects <- results |>
   apply(1, get_percent) |>
   t() |>
   as_tibble() |>
-  set_names(str_c("P_", DIR_INDIR)
+  set_names(str_c("P_", DIR_INDIR))
+
+EFFECTS <- c(
+  "directos", "indirectos",
+  "desbordamiento", "retroalimentacion"
 )
-
-# get_effects <- function(x) {
-#   tmp <- percents_effects |>
-#     map(\(effect) effect * x) |>
-#   set_names(c("dir", "indir",
-#               "desb", "retro"))
-#   inducidos <- tmp$desb + tmp$retro
-#   list(directos = tmp$dir,
-#        indirectos = tmp$indir,
-#        inducidos = inducidos)
-# }
-
-EFFECTS <- c("directos", "indirectos",
-  "desbordamiento", "retroalimentacion")
 
 get_effects <- function(x) {
   percents_effects |>
     map(\(effect) effect * x) |>
-  set_names(EFFECTS)
-  }
+    set_names(EFFECTS)
+}
 
 
 shocks_names <- results |>
@@ -49,7 +41,7 @@ shocks_names <- results |>
 
 OUT <- vector(mode = "list", length = length(shocks_names))
 OUT <- set_names(OUT, shocks_names)
-for(sname in shocks_names) {
+for (sname in shocks_names) {
   resin <- results[[sname]]
   resout <- map(get_effects(resin), sum)
   OUT[[sname]] <- unlist(resout)
@@ -60,5 +52,5 @@ effects_over_shocks <-
   mutate(effect = EFFECTS) |>
   relocate(effect)
 
-effects_over_shocks  |>
+effects_over_shocks |>
   write_tsv("data/effects_on_shocks.tsv")
