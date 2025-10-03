@@ -1,71 +1,71 @@
-region	scian	sector	shock_01	schock_01
-sinaloa	111	agricultura	0	17691.258814734705
-sinaloa	112	explotacion_animal	0	1059.2705206861328
-sinaloa	113:115	agropecuario_forestal	0	201.2165343200282
-sinaloa	114	pesca_caza	0	81.24030076441193
-sinaloa	211	mineria_petrolera	0	102.63182571079204
-sinaloa	212	mineria_no_petrolera	0	3.8500066669184516
-sinaloa	22	energia_electrica_agua_gas	0	0.39783654716760325
-sinaloa	23	construccion	0	0
-sinaloa	311	industria_alimentaria	0	0
-sinaloa	312	bebidas_tabaco	0	0
-sinaloa	313:314	textiles_excepto_prendas	0	0
-sinaloa	315:316	prendas_cuero_piel	0	0
-sinaloa	321	madera	0	0
-sinaloa	322:323	papel	0	0
-sinaloa	324:326	industria_quimica_plasticos	0	0
-sinaloa	327	industria_minerales_no_metalicos	0	0
-sinaloa	331:332	industrias_metalicas	0	0
-sinaloa	333:336	maquinaria_equipo_electronicos	0	0
-sinaloa	337	muebles_colchones_persianas	0	0
-sinaloa	339	otras_industrias	0	0
-sinaloa	43	comercio_al_por_mayor	0	0
-sinaloa	46	comercio_al_por_menor	0	0
-sinaloa	48:49	logistica	0	0
-sinaloa	51	medios_masivos	0	0
-sinaloa	52	servicios_financieros	0	0
-sinaloa	53	servicios_inmobiliarios	0	0
-sinaloa	54	servicios_profesionales	0	0
-sinaloa	55	corporativos	0	0
-sinaloa	56	serivicios_manejo_de_residuos	0	0
-sinaloa	61	servicios_educativos	0	0
-sinaloa	62	servicios_salud	0	0
-sinaloa	71	servicios_recreativos	0	0
-sinaloa	72	hoteleria_restaurants	0	0
-sinaloa	81	otros_servicios_excepto_gubernamentales	0	0
-sinaloa	93	servicios_gubernamentales	0	0
-fuera_sinaloa	111	agricultura	0	0
-fuera_sinaloa	112	explotacion_animal	0	9533.434686175193
-fuera_sinaloa	113:115	agropecuario_forestal	0	1810.9488088802536
-fuera_sinaloa	114	pesca_caza	0	324.9612030576477
-fuera_sinaloa	211	mineria_petrolera	0	0
-fuera_sinaloa	212	mineria_no_petrolera	0	15.400026667673806
-fuera_sinaloa	22	energia_electrica_agua_gas	0	3.5805289245084295
-fuera_sinaloa	23	construccion	0	210.46058743775916
-fuera_sinaloa	311	industria_alimentaria	0	61.374367930565334
-fuera_sinaloa	312	bebidas_tabaco	0	15.114110903914106
-fuera_sinaloa	313:314	textiles_excepto_prendas	0	0.8572914122771247
-fuera_sinaloa	315:316	prendas_cuero_piel	0	0.44190402121789923
-fuera_sinaloa	321	madera	0	0.11974289069401137
-fuera_sinaloa	322:323	papel	0	0.03390226813830446
-fuera_sinaloa	324:326	industria_quimica_plasticos	0	0
-fuera_sinaloa	327	industria_minerales_no_metalicos	0	0
-fuera_sinaloa	331:332	industrias_metalicas	0	0
-fuera_sinaloa	333:336	maquinaria_equipo_electronicos	0	0
-fuera_sinaloa	337	muebles_colchones_persianas	0	0
-fuera_sinaloa	339	otras_industrias	0	0
-fuera_sinaloa	43	comercio_al_por_mayor	0	0
-fuera_sinaloa	46	comercio_al_por_menor	0	0
-fuera_sinaloa	48:49	logistica	0	0
-fuera_sinaloa	51	medios_masivos	0	0
-fuera_sinaloa	52	servicios_financieros	0	0
-fuera_sinaloa	53	servicios_inmobiliarios	0	0
-fuera_sinaloa	54	servicios_profesionales	0	0
-fuera_sinaloa	55	corporativos	0	0
-fuera_sinaloa	56	serivicios_manejo_de_residuos	0	0
-fuera_sinaloa	61	servicios_educativos	0	0
-fuera_sinaloa	62	servicios_salud	0	0
-fuera_sinaloa	71	servicios_recreativos	0	0
-fuera_sinaloa	72	hoteleria_restaurants	0	0
-fuera_sinaloa	81	otros_servicios_excepto_gubernamentales	0	0
-fuera_sinaloa	93	servicios_gubernamentales	0	0
+region	scian	sector	shock_01
+sinaloa	111	agricultura	17691.2588147347
+sinaloa	112	explotacion_animal	1059.27052068613
+sinaloa	113:115	agropecuario_forestal	201.216534320028
+sinaloa	114	pesca_caza	81.2403007644119
+sinaloa	211	mineria_petrolera	102.631825710792
+sinaloa	212	mineria_no_petrolera	3.85000666691845
+sinaloa	22	energia_electrica_agua_gas	0.397836547167603
+sinaloa	23	construccion	0
+sinaloa	311	industria_alimentaria	0
+sinaloa	312	bebidas_tabaco	0
+sinaloa	313:314	textiles_excepto_prendas	0
+sinaloa	315:316	prendas_cuero_piel	0
+sinaloa	321	madera	0
+sinaloa	322:323	papel	0
+sinaloa	324:326	industria_quimica_plasticos	0
+sinaloa	327	industria_minerales_no_metalicos	0
+sinaloa	331:332	industrias_metalicas	0
+sinaloa	333:336	maquinaria_equipo_electronicos	0
+sinaloa	337	muebles_colchones_persianas	0
+sinaloa	339	otras_industrias	0
+sinaloa	43	comercio_al_por_mayor	0
+sinaloa	46	comercio_al_por_menor	0
+sinaloa	48:49	logistica	0
+sinaloa	51	medios_masivos	0
+sinaloa	52	servicios_financieros	0
+sinaloa	53	servicios_inmobiliarios	0
+sinaloa	54	servicios_profesionales	0
+sinaloa	55	corporativos	0
+sinaloa	56	serivicios_manejo_de_residuos	0
+sinaloa	61	servicios_educativos	0
+sinaloa	62	servicios_salud	0
+sinaloa	71	servicios_recreativos	0
+sinaloa	72	hoteleria_restaurants	0
+sinaloa	81	otros_servicios_excepto_gubernamentales	0
+sinaloa	93	servicios_gubernamentales	0
+fuera_sinaloa	111	agricultura	0
+fuera_sinaloa	112	explotacion_animal	9533.43468617519
+fuera_sinaloa	113:115	agropecuario_forestal	1810.94880888025
+fuera_sinaloa	114	pesca_caza	324.961203057648
+fuera_sinaloa	211	mineria_petrolera	0
+fuera_sinaloa	212	mineria_no_petrolera	15.4000266676738
+fuera_sinaloa	22	energia_electrica_agua_gas	3.58052892450843
+fuera_sinaloa	23	construccion	210.460587437759
+fuera_sinaloa	311	industria_alimentaria	61.3743679305653
+fuera_sinaloa	312	bebidas_tabaco	15.1141109039141
+fuera_sinaloa	313:314	textiles_excepto_prendas	0.857291412277125
+fuera_sinaloa	315:316	prendas_cuero_piel	0.441904021217899
+fuera_sinaloa	321	madera	0.119742890694011
+fuera_sinaloa	322:323	papel	0.0339022681383045
+fuera_sinaloa	324:326	industria_quimica_plasticos	0
+fuera_sinaloa	327	industria_minerales_no_metalicos	0
+fuera_sinaloa	331:332	industrias_metalicas	0
+fuera_sinaloa	333:336	maquinaria_equipo_electronicos	0
+fuera_sinaloa	337	muebles_colchones_persianas	0
+fuera_sinaloa	339	otras_industrias	0
+fuera_sinaloa	43	comercio_al_por_mayor	0
+fuera_sinaloa	46	comercio_al_por_menor	0
+fuera_sinaloa	48:49	logistica	0
+fuera_sinaloa	51	medios_masivos	0
+fuera_sinaloa	52	servicios_financieros	0
+fuera_sinaloa	53	servicios_inmobiliarios	0
+fuera_sinaloa	54	servicios_profesionales	0
+fuera_sinaloa	55	corporativos	0
+fuera_sinaloa	56	serivicios_manejo_de_residuos	0
+fuera_sinaloa	61	servicios_educativos	0
+fuera_sinaloa	62	servicios_salud	0
+fuera_sinaloa	71	servicios_recreativos	0
+fuera_sinaloa	72	hoteleria_restaurants	0
+fuera_sinaloa	81	otros_servicios_excepto_gubernamentales	0
+fuera_sinaloa	93	servicios_gubernamentales	0
