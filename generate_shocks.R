@@ -43,6 +43,9 @@ structs02 <- structs |>
   imap(\(x, ix) mutate(x, investor = ix)) |>
   bind_rows()
 
+structs$industria_quimica_plasticos |>
+  write_tsv("estructura_quimica.tsv")
+
 
 splitsQ <- read_tsv("splits_sin.tsv")
 
