@@ -44,7 +44,7 @@ structs02 <- structs |>
   bind_rows()
 
 
-splitsQ <- read_tsv("splits.tsv")
+splitsQ <- read_tsv("splits_sin.tsv")
 
 sin_out_splitsQ <- c(splitsQ$sin, splitsQ$out) * c(
   structs$industria_quimica_plasticos$tot,
@@ -56,5 +56,6 @@ shocksQ <- sin_out_splitsQ * SH_CONS
 TemplateS <- read_tsv("data/shocks_template.tsv")
 
 shocksReady <- TemplateS |>
-  select(-shock_02) |>
-  mutate(schock_01 = shocksQ)
+  select(-shock_01, -shock_02) |>
+  mutate(shock_cons = shocksQ)
+write_tsv(shocksReady, "data/shocks.tsv")
