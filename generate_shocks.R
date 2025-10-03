@@ -48,4 +48,9 @@ structs02 <- structs |>
 
 # write_tsv(structs02, "estructura.tsv")
 
+# Total is Richer
+structs$industria_quimica_plasticos |>
+  write_tsv("quim_struct.tsv")
 
+structs$industria_quimica_plasticos |>
+  view()
