@@ -14,11 +14,6 @@ SH_CONS <- USD_MXN * CONSTRUCTION / MIP_SCALE
 # The %6 of the GDP
 RELATION_GDP <- SH_CONS / SIN_GDP
 
-smip <- function(usd_e3) {
-  # scale mip
-  USD_MXN * usd_e3 / MIP_SCALE
-}
-
 
 library(tidyverse)
 nat <- read_tsv("data/nacional.tsv")
@@ -31,10 +26,12 @@ sutall <- bind_rows(nat, tot, imp)
 # write_tsv(sutall, "results/supply_use_relative.tsv")
 
 check_industry <- function(industry) {
-  tibble(sector = imp$sector,
-                 nat = nat[[industry]],
-                 tot = tot[[industry]],
-                 imp = imp[[industry]]) |>
+  tibble(
+    sector = imp$sector,
+    nat = nat[[industry]],
+    tot = tot[[industry]],
+    imp = imp[[industry]]
+  ) |>
     arrange(desc(nat), desc(tot), desc(imp))
 }
 
@@ -46,11 +43,18 @@ structs02 <- structs |>
   imap(\(x, ix) mutate(x, investor = ix)) |>
   bind_rows()
 
-# write_tsv(structs02, "estructura.tsv")
 
-# Total is Richer
-structs$industria_quimica_plasticos |>
-  write_tsv("quim_struct.tsv")
+splitsQ <- read_tsv("splits.tsv")
 
-structs$industria_quimica_plasticos |>
-  view()
+sin_out_splitsQ <- c(splitsQ$sin, splitsQ$out) * c(
+  structs$industria_quimica_plasticos$tot,
+  structs$industria_quimica_plasticos$tot
+)
+
+shocksQ <- sin_out_splitsQ * SH_CONS
+
+TemplateS <- read_tsv("data/shocks_template.tsv")
+
+shocksReady <- TemplateS |>
+  select(-shock_02) |>
+  mutate(schock_01 = shocksQ)
